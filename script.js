@@ -6,6 +6,15 @@ function getComputerChoice(){
     else return "Error -  return out of range!!!";
 }
 
+function getPlayerChoice(){
+    let playerInput = prompt("What are you going to play?");
+    playerInput = playerInput.toLowerCase();
+    if(playerInput == "rock") return "Rock";
+    else if(playerInput == "paper") return "Paper";
+    else if(playerInput == "scissors") return "Scissors";
+    else return "Error"
+}
+
 function playRound(playerSelection, ComputerSelection){
     if(playerSelection == "Rock" && ComputerSelection == "Paper")
         return "You Lose! Paper beats Rock";
@@ -37,6 +46,7 @@ function game(rounds){
     console.log("Player: "+playerWinningsCount+" | Computer: " + computerWinningsCount+"");
 
     do {
+        let playerSelection = getPlayerChoice();
         let ComputerSelection = getComputerChoice();
         console.log(playRound(playerSelection, ComputerSelection))
         let result = playRound(playerSelection, ComputerSelection);
@@ -52,5 +62,5 @@ function game(rounds){
     else console.log("You Lose. luck next time :)");
 }
 
-const playerSelection = "Rock";
+
 game(2);
